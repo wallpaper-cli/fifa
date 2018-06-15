@@ -37,11 +37,10 @@ const teamList = ['russia',
   'colombia',
   'japan'];
 
-const setWallpaper = 'wallpaper new_file.png';
+const setWallpaper = 'wallpaper wallpaper.png';
 
 const fillRow = (image, font, x1, y1, stat) => {
   let k = 0;
-  console.log(stat);
   for (let i = 0; i < stat.length; i += 1) {
     image.print(font, x1 + k, y1, stat[i].toString());
     k += 108;
@@ -65,8 +64,9 @@ getStat().then((result) => {
       );
       return 0;
     });
-    const file = 'new_file.png';
-    image.write(file, () => {
+    const file = 'wallpaper.png';
+    image.write(file, (status) => {
+      console.log(status);
       exec(setWallpaper, (err) => {
         if (!err) {
           console.log('Wallpaper updated');
@@ -75,25 +75,5 @@ getStat().then((result) => {
         }
       });
     });
-
-    // setTimeout(() => {
-    //   exec(resetWallpaper, (err, data) => {
-    //     if (!err) {
-    //       console.log('Wallpaper updated: ', data);
-    //     } else {
-    //       console.log('Error: ', err);
-    //     }
-    //   });
-    // }, 2000);
-
-    // setTimeout(() => {
-    //   exec(setWallpaper, (err, data) => {
-    //     if (!err) {
-    //       console.log('Wallpaper updated: ', data);
-    //     } else {
-    //       console.log('Error: ', err);
-    //     }
-    //   });
-    // }, 2000);
   }));
 }).catch(err => console.log(err));
