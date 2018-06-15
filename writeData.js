@@ -4,7 +4,7 @@ const getStat = require('./getData');
 const { x, y, teamList } = require('./constant');
 
 const file = `${new Date().getTime()}.png`;
-
+const removeExistingFile = 'rm -rf [0-9]*.png';
 const setWallpaper = `osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Users/anmolvarma/projects/fifaWallpaper/${file}"'`;
 
 const fillRow = (image, font, x1, y1, stat) => {
@@ -17,6 +17,13 @@ const fillRow = (image, font, x1, y1, stat) => {
 
 getStat().then((result) => {
   console.log(result);
+  exec(removeExistingFile, (err) => {
+    if (!err) {
+      console.log('File deleted');
+    } else {
+      console.log('Error: ', err);
+    }
+  });
   Jimp.read('./fifa.png').then(image => Jimp.loadFont(Jimp.FONT_SANS_32_WHITE).then((font) => {
     const allScore = Object.values(result);
     const teams = Object.keys(result);

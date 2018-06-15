@@ -1,4 +1,4 @@
-export const teamList = ['russia',
+const teamList = ['russia',
   'saudi arabia',
   'egypt',
   'uruguay',
@@ -31,6 +31,8 @@ export const teamList = ['russia',
   'colombia',
   'japan'];
 
-export const x = [480, 2540];
+const x = [480, 2540];
 
-export const y = [143, 670, 1190, 1710, 143, 670, 1193, 1695];
+const y = [143, 670, 1190, 1710, 143, 670, 1193, 1695];
+
+module.exports = { teamList, x, y };
