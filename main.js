@@ -5,7 +5,7 @@ const { x, y, teamList } = require('./constant');
 
 const file = `${new Date().getTime()}.png`;
 const removeExistingFile = 'rm -rf [0-9]*.png';
-const setWallpaper = `osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Users/anmolvarma/projects/fifaWallpaper/${file}"'`;
+const setWallpaper = `osascript -e 'tell application "Finder" to set desktop picture to POSIX file "${__dirname}/${file}"'`;
 
 const fillRow = (image, font, x1, y1, stat) => {
   let k = 0;
