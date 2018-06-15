@@ -1,13 +1,16 @@
 {
-  "name": "template",
+  "name": "fifa18wallpaper",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sets wallpaper for your mac",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "coverage": "jest --coverage --notify"
+    "start": "npm install && node main.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anmol5varma/fifa18Wallpaper.git"
+  },
+  "author": "Anmol Varma",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^4.16.0",
